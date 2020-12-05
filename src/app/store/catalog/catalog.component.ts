@@ -9,7 +9,11 @@ export class CatalogComponent implements OnInit {
 
   constructor() { }
 
+  cards = new Array(12);
+
   ngOnInit(): void {
   }
+
+
 
 }

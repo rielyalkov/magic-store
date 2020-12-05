@@ -22,6 +22,8 @@ export class AuthenticationService {
   login(user: string, pass: string): void {
     if (user === 'admin' && pass === 'admin') {
       this.user = user;
+    } else {
+      this.user = undefined;
     }
   }
 }
