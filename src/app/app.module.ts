@@ -9,6 +9,8 @@ import {LoginComponent} from './login/login.component';
 import {AppRoutingModule} from './app-routing.module';
 import {CatalogComponent} from './store/catalog/catalog.component';
 import { CartComponent } from './store/cart/cart.component';
+import { AboutComponent } from './store/about/about.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { CartComponent } from './store/cart/cart.component';
     StoreComponent,
     LoginComponent,
     CatalogComponent,
-    CartComponent
+    CartComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,7 @@ import { CartComponent } from './store/cart/cart.component';
     MaterialModule,
     RouterModule,
     AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

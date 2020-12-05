@@ -5,6 +5,8 @@ import {StoreComponent} from './store/store.component';
 import {LoginComponent} from './login/login.component';
 import {CatalogComponent} from './store/catalog/catalog.component';
 import {CartComponent} from './store/cart/cart.component';
+import {AboutComponent} from './store/about/about.component';
+import {AuthGuard} from './admin/auth.guard';
 
 const routes: Routes = [
   {
@@ -19,6 +21,10 @@ const routes: Routes = [
         path: 'cart',
         component: CartComponent,
       },
+      {
+        path: 'about',
+        component: AboutComponent,
+      },
       ]
   },
   {
@@ -27,7 +33,8 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canActivate: [AuthGuard]
   },
 ];
 

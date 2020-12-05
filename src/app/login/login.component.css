@@ -1,0 +1,14 @@
+.mat-card {
+  top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+
+.mat-form-field {
+  width: 170px;
+}
+
+.login__title {
+  margin-bottom: 10px;
+}

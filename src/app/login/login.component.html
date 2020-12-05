@@ -1,1 +1,41 @@
-<p>login works!</p>
+<mat-card>
+  <div class="login__title">Вход в систему</div>
+  <form [formGroup]="formGroup">
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <label>
+        <input matInput formControlName="username">
+      </label>
+      <button
+        *ngIf="formGroup.value.username"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="clear('username')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Пароль</mat-label>
+      <label>
+        <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+      </label>
+      <button matSuffix mat-icon-button (click)="hide = !hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <button
+        *ngIf="formGroup.value.password"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="clear('password')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+
+  <button mat-raised-button (click)="submit()">Войти</button>
+  <mat-error *ngIf="(form.password.errors || form.password.errors) && clicked">ты лох</mat-error>
+
+</mat-card>
