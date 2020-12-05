@@ -1,8 +1,14 @@
 <div class="cards">
   <div *ngFor="let card of cards">
     <mat-card class="card">
-      <div>Name of product</div>
       <img src="assets/shamp.jpg" width="200" alt="shampoo">
+      <div class="card__row">
+        <div>
+          <div>Name of product</div>
+          <div>1000 ₽</div>
+        </div>
+        <button mat-mini-fab class="card__button-cart" (click)="addToCart()"><mat-icon>shopping_basket</mat-icon></button>
+      </div>
     </mat-card>
   </div>
 </div>

@@ -1,9 +1,9 @@
 <mat-toolbar>
   <div>
     <button mat-raised-button routerLink="/about">Обо мне</button>
-    <button mat-raised-button routerLink="/cart">Корзина</button>
+    <button mat-raised-button matBadge="{{enemiesCount}}" matBadgeColor="warn" routerLink="/cart" >Корзина</button>
     <button mat-raised-button routerLink="/">Каталог</button>
   </div>
   <button mat-icon-button routerLink="/admin"><mat-icon>login</mat-icon></button>
 </mat-toolbar>
--<router-outlet></router-outlet>
+<router-outlet></router-outlet>
