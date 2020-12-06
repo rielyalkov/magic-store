@@ -1,14 +1,14 @@
 <mat-card>
   <div class="login__title">Вход в систему</div>
   <form [formGroup]="formGroup" (keydown.enter)="submit()">
-    <mat-form-field>
+    <mat-form-field color="accent">
       <mat-label>Username</mat-label>
       <label>
         <input matInput formControlName="username">
       </label>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field color="accent">
       <mat-label>Пароль</mat-label>
       <label>
         <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">

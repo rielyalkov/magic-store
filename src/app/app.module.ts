@@ -8,9 +8,16 @@ import {StoreComponent} from './store/store.component';
 import {LoginComponent} from './login/login.component';
 import {AppRoutingModule} from './app-routing.module';
 import {CatalogComponent} from './store/catalog/catalog.component';
-import { CartComponent } from './store/cart/cart.component';
-import { AboutComponent } from './store/about/about.component';
+import {CartComponent} from './store/cart/cart.component';
+import {AboutComponent} from './store/about/about.component';
 import {ReactiveFormsModule} from '@angular/forms';
+
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,7 +26,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     LoginComponent,
     CatalogComponent,
     CartComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +35,10 @@ import {ReactiveFormsModule} from '@angular/forms';
     RouterModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

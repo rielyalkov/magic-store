@@ -35,7 +35,7 @@
 //);
 
   $primary: mat-palette($mat-gray, 100);
-  $accent: mat-palette($mat-gray, 200);
+  $accent: mat-palette($mat-gray, 900);
 
   $theme: mat-light-theme($primary, $accent);
 

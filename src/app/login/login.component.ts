@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthenticationService} from '../admin/authentication.service';
+import {AuthenticationService} from '../admin/auth-service/authentication.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {AngularFireAuth} from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthenticationService,
     private route: ActivatedRoute,
     private router: Router,
+    private auth: AngularFireAuth,
   ) {
     this.formGroup = formBuilder.group({
       username: ['', Validators.required],
@@ -39,7 +41,15 @@ export class LoginComponent implements OnInit {
 
   submit(): void {
     this.clicked = true;
-    this.authService.login(this.formGroup.value.username, this.formGroup.value.password);
-    this.router.navigate([this.returnUrl]);
+    this.authService.login(this.formGroup.value.username, this.formGroup.value.password).then(
+      response => {
+        console.log(response);
+        this.authService.setLoginStatus(response.user.uid);
+        (console.log('true!'));
+        this.router.navigate([this.returnUrl]);
+        },
+    ).catch(
+      () => (console.log('error!'))
+    );
   }
 }
