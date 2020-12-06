@@ -13,7 +13,7 @@ export class AdminPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.adminService.newProduct();
+    // this.adminService.newProduct();
   }
 
 }
