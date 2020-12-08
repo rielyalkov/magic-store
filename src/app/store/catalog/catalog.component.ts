@@ -16,6 +16,7 @@ export class CatalogComponent implements OnInit {
   ) { }
 
   cards = new Array(12);
+  loadingIMG: boolean;
 
   ngOnInit(): void {
     this.catalogService.getProducts().pipe(

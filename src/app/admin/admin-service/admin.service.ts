@@ -12,8 +12,8 @@ export class AdminService {
     private db: AngularFireDatabase,
   ) { }
 
-  // newProduct(): void {
-  //   this.db.database.ref('data').push({name});
-  // }
+  newProduct(): void {
+    this.db.database.ref('data').push({name});
+  }
 
 }

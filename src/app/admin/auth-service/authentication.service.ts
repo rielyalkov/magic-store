@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
+import {tap} from 'rxjs/operators';
 
 interface User {
   username: string;
@@ -24,7 +25,9 @@ export class AuthenticationService {
   }
 
   get LoginStatus(): any {
-    console.log(JSON.parse(localStorage.getItem('loggedIn') || this.loggedInStatus.toString()));
+    // this.auth.user.pipe(
+    //   tap(q => console.log(q))
+    // ).subscribe();
     return JSON.parse(localStorage.getItem('loggedIn') || this.loggedInStatus.toString());
   }
 

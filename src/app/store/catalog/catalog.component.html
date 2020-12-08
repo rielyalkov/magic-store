@@ -1,7 +1,8 @@
 <div class="cards">
   <div *ngFor="let card of cards">
     <mat-card class="card">
-      <img src="{{card?.image}}" width="200" alt="shampoo">
+      <img [hidden]="loadingIMG" src="../../../assets/a9.jpg">
+      <img [hidden]="!loadingIMG" src="{{card?.image}}" width="200" alt="shampoo" (load)="loadingIMG = true">
       <div class="card__row">
         <div>
           <div>{{card?.fullname}}</div>
