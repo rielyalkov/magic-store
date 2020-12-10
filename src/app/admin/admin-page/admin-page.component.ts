@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AdminService} from '../admin-service/admin.service';
+import {AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from '@angular/fire/storage';
+import {Observable} from 'rxjs';
+import {finalize, map, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-admin-page',
@@ -9,14 +12,64 @@ import {AdminService} from '../admin-service/admin.service';
 export class AdminPageComponent implements OnInit {
 
   constructor(
-    private adminService: AdminService
-  ) { }
+    private adminService: AdminService,
+    private afStorage: AngularFireStorage
+  ) {
+
+  }
+
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  uploadProgress: Observable<number>;
+  downloadURL: Observable<any>;
+
+  image: any;
+  imagePath;
+  imgURL: string | ArrayBuffer;
+
+
 
   ngOnInit(): void {
-
   }
 
   addNewProduct(): void {
     this.adminService.newProduct();
   }
+
+  uploadPreview(event): void {
+    this.image = event.target.files[0];
+
+    if (event.length === 0) {
+      return;
+    }
+
+    if (event.target.files[0].type.match(/image\/*/) == null) {
+      alert('Only images are supported.');
+      return;
+    }
+
+    const reader = new FileReader();
+    this.imagePath = event;
+    reader.readAsDataURL(this.image);
+    reader.onload = () => {
+      this.imgURL = reader.result;
+    };
+  }
+
+  upload(): void {
+    const randomId = Math.random().toString(36).substring(2);
+
+    this.ref = this.afStorage.ref('/images/' + randomId);
+
+    this.task = this.ref.put(this.image);
+
+    this.uploadProgress = this.task.snapshotChanges()
+      .pipe(map(s => (s.bytesTransferred / s.totalBytes) * 100));
+
+    this.task.snapshotChanges().pipe(
+      map(s => (s.bytesTransferred / s.totalBytes) * 100),
+      finalize(() => this.downloadURL = this.ref.getDownloadURL())
+    ).subscribe();
+  }
+
 }

@@ -31,6 +31,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 // import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatBadgeModule} from '@angular/material/badge';
 import {BrowserModule} from '@angular/platform-browser';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {NgModule} from '@angular/core';
 
 @NgModule({
@@ -66,6 +67,7 @@ import {NgModule} from '@angular/core';
     // MatSortModule,
     // MatPaginatorModule,
     MatBadgeModule,
+    MatProgressBarModule,
   ],
   exports: [
     MatCheckboxModule,
@@ -99,6 +101,7 @@ import {NgModule} from '@angular/core';
     // MatSortModule,
     // MatPaginatorModule,
     MatBadgeModule,
+    MatProgressBarModule,
   ],
   providers: [],
 })

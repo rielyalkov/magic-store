@@ -6,10 +6,10 @@ import {MaterialModule} from '../material.module';
 
 @NgModule({
   declarations: [AdminPageComponent],
-    imports: [
-        CommonModule,
-        AdminRoutingModule,
-        MaterialModule,
-    ],
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    MaterialModule,
+  ],
 })
 export class AdminModule { }
