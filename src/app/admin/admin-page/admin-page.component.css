@@ -12,3 +12,8 @@ label {
   margin-left: 0.3rem;
   font-family: sans-serif;
 }
+
+.header_row {
+  display: flex;
+  justify-content: space-around;
+}

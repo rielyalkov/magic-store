@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {AdminService} from '../admin-service/admin.service';
 import {AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from '@angular/fire/storage';
 import {Observable} from 'rxjs';
-import {finalize, map, switchMap} from 'rxjs/operators';
+import {finalize, map} from 'rxjs/operators';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {AuthenticationService} from '../auth-service/authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-page',
@@ -12,8 +15,10 @@ import {finalize, map, switchMap} from 'rxjs/operators';
 export class AdminPageComponent implements OnInit {
 
   constructor(
+    private router: Router,
     private adminService: AdminService,
-    private afStorage: AngularFireStorage
+    private afStorage: AngularFireStorage,
+    private authService: AuthenticationService,
   ) {
 
   }
@@ -72,4 +77,8 @@ export class AdminPageComponent implements OnInit {
     ).subscribe();
   }
 
+  logout(): void {
+    this.authService.logout();
+    this.router.navigateByUrl('/login');
+  }
 }

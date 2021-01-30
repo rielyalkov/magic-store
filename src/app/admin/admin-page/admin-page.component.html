@@ -1,13 +1,23 @@
 <mat-progress-bar color="warn" [value]="uploadProgress | async"></mat-progress-bar>
 
-<label for="fusk">dsfdsfsd</label>
+<div class="header_row">
+  <div>
+    <label for="fusk">dsfdsfsd</label>
 
-<input id="fusk" type="file" (change)="uploadPreview($event)" accept=".png,.jpg" style="display: none;" />
+    <input id="fusk" type="file" (change)="uploadPreview($event)" accept=".png,.jpg" style="display: none;" />
 
-<button (click)="upload()">upload</button>
+    <button (click)="upload()">upload</button>
 
-<div class="result" *ngIf="downloadURL | async; let uploadSrc">
-  <a [href]="uploadSrc">You just uploaded this file!</a>
+    <div class="result" *ngIf="downloadURL | async; let uploadSrc">
+      <a [href]="uploadSrc">You just uploaded this file!</a>
+    </div>
+
+    <img [src]="imgURL" height="200" *ngIf="imgURL">
+  </div>
+  <div>
+    <button mat-raised-button (click)="logout()">
+      Выйти из админской панели
+    </button>
+  </div>
 </div>
 
-<img [src]="imgURL" height="200" *ngIf="imgURL">
