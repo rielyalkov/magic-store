@@ -28,7 +28,13 @@
               "customTheme.scss",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+             {
+              "input": "kek.js",
+              "inject": false,
+              "bundleName": "kek"
+             }
+            ]
           },
           "configurations": {
             "production": {
