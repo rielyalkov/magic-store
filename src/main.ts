@@ -3,9 +3,9 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
-import {kekjs};
+console.log(window);
+console.log(window['kekjs']);
 
-console.log(kekjs);
 
 if (environment.production) {
   enableProdMode();
