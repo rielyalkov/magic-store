@@ -3,7 +3,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
-import {kekjs} from '../kek.js';
+import {kekjs};
 
 console.log(kekjs);
 
