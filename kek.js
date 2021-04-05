@@ -1,1 +1,1 @@
-var kekjs = 'localhost';
+export var kekjs = 'localhost';
