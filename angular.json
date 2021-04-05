@@ -31,7 +31,7 @@
             "scripts": [
              {
               "input": "kek.js",
-              "inject": true,
+              "inject": false,
               "bundleName": "kek"
              }
             ]
